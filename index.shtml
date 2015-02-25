@@ -1,0 +1,215 @@
+<!--#include virtual="header.html" -->
+
+<h1 class="title">Project 4 - Scheme Parser & Interpreter</h1>
+<center>
+Due 11:59pm November 6th, 2014<br>
+</center>
+
+<h2>Introduction</h2>
+
+<p>
+In this project, you will write an interpreter for a tiny subset of
+the <a href="http://en.wikipedia.org/wiki/Scheme_(programming_language)">Scheme</a>
+programming language.  As part of the project, you will also write a
+parser that translates a plain text Scheme program into an abstract
+syntax tree (AST), and an evaluator that executes the
+code represented as an AST.
+
+<p>
+In order to test your project can try running small Scheme programs online 
+<a href="http://repl.it/languages/Scheme">here</a>.
+<p>
+If you want to find out more about Scheme, you can download the 
+<a href="http://www.r6rs.org">Revised<sup>6</sup> Report on the Algorithmic
+Language Scheme</a>.  You may also try <a
+href="http://www.ccs.neu.edu/home/dorai/t-y-scheme/t-y-scheme.html">Teach
+Yourself Scheme in Fixnum Days</a>.
+
+<p>
+For purposes of this project, <font color="green">we will only test your interpreter
+with valid input</font>.  Thus your code may do whatever you want on a
+bad input.  We do, however, recommend adding reasonable error handling
+code to your project for cases of malformed or otherwise incorrect
+Scheme input, because it will make developing your project easier.  As
+you are testing your program, you may inadvertently create incorrect
+input data; substantial time may be lost in trying to debug the
+program, only to find a few mistyped characters in your input data are
+the source of the problem.
+
+<p>
+Also, even though you need all of these pieces written to have a
+"complete" Scheme interpreter, we've structured the project so that
+you can work on any of the separate phases independently and test them
+on their own.  So if you get stuck on an earlier part of the project,
+you can still move on to a later part.
+
+<h2>Getting Started</h2>
+
+Download the following archive file <a href="p4.zip">p4.zip</a>
+and extract its contents.
+<p>
+
+Along with files used to make direct submissions to the
+submit server (submit.jar,
+<a href=".submit">.submit</a>,
+<a href="submit.rb">submit.rb</a>), you will
+find the following project files:
+</p><ul>
+<li>Your Scheme program - <a href="schemeTest.txt">schemeTest.txt</a>
+
+
+</li><li>Public tests
+<ul>
+<li><a href="public_schemeTest.in">public_schemeTest.in</a>
+</ul>
+</li><li>Expected outputs for public tests 
+<ul>
+<li><a href="public_schemeTest.out">public_schemeTest.out</a>
+</ul>
+</li></ul>
+
+<h2>Part 1:  Simple Scheme Programming</h2>
+
+Put your solution to this part in the file <tt>schemeTest.txt</tt>.
+<p>
+
+Implement the following functions in regular Scheme.  All of these functions
+should operate over integers and/or lists of integers.  (These should look
+pretty familiar.)  The purpose of this part is just to make sure you
+understand Scheme before you try to start writing an interpreter for
+it.
+
+<ol>
+<li>Write a function <tt>double x</tt> that returns two times <tt>x</tt>.
+
+<li>Write a function <tt>powof2 x</tt> that returns true (which is written
+<tt>#t</tt> in Scheme) if and only if <tt>x</tt> is a power of 2.
+(Hint:  Use the functions <tt>/</tt> and <tt>modulo</tt>.)
+
+<li>Write a function <tt>sum l</tt> that returns the sum of the
+    integer list <tt>l</tt>, using recursion.  <i>Hint:</i>  You can
+    use the function pair? to determine whether a  
+value is a cons cell or not; and in this problem, you can assume if  
+something is not a cons cell, then it's '().
+
+<li>Write a function <tt>applyToList f l</tt> that returns a new list
+    containing all the elements of <tt>l</tt>, in the same order, but
+    with <tt>f</tt> applied to them.  Your implementation should use
+    recursion.  You may <b>not</b> use Scheme's built-in map or
+    for-each functions in writing your map function.  Note applyToList
+    directly takes 2 arguments (i.e., it is not using currying).
+</ol>
+
+<h2>Scheme Interpreter and Parser</h2>
+
+Under construction...
+
+<h2>Submission</h2>
+
+All your code should be in two files, schemeTest.txt & scheme.ml.
+You can submit your project in two ways:
+
+<ul>
+<li>
+Submit your schemeTest.txt & scheme.ml files directly to the 
+<a href="http://submit.cs.umd.edu/">submit server</a>. 
+
+<ul>
+<li>
+You can submit multiple files by putting the files in a .zip archive first.
+On Windows you can select the two files, then right click to
+select the "Send to->Compressed (zipped) Folder" option
+to create a .zip archive.
+Once your files are in a single zip archive,
+bring up the upload dialog box by clicking on the 
+submit link in the column "web submission".
+Select your archive file using the "Browse" button, 
+then press the "Submit project!" button.  
+
+<p>
+<li>
+The submit server now allows multiple files (from 
+the same directory) to be selected.  
+Bring up the upload dialog box by clicking on the 
+submit link in the column "web submission".
+Browse to the directory containing your project
+files, then click on both schemeTest.txt and scheme.ml.
+Now press the "Submit project!" button.  
+</ul>
+
+<p>
+<img src="submit1.jpg">
+</p><p>
+
+
+</p><p>
+<img src="submit2.jpg">
+</p><p>
+
+
+</p><p>
+</p>
+
+<li>
+You may also submit directly by executing a Java program on a computer
+with Java and network access.  Use the submit.jar file 
+from the archive <a href="p4.zip">p4.zip</a>, 
+To submit, go to the directory containing your project, then either
+execute submit.rb by typing:
+ 
+</p><center>
+ 
+<tt>
+ruby submit.rb
+</tt>
+</center>
+<p>
+ 
+or use the java jar directly using the following command:
+</p><center>
+
+<tt>
+java -jar submit.jar
+</tt>
+</center>
+<p>
+
+You will be asked to enter your class account and password, then
+all files in the directory (and its subdirectories) will be
+put in a jar file and submitted to the submit server.  
+If your submission is successful you will see the message:
+</p><p> 
+
+</p><center>
+<tt>
+Successful submission #<submission_number> received for project 4
+</submission_number></tt>
+</center>
+<p>
+
+</p></li></ul>
+
+<h2>Academic Integrity</h2>
+
+<p>
+The Campus Senate has adopted a policy asking students to include the
+following statement on each assignment in every course: "I pledge on
+my honor that I have not given or received any unauthorized assistance
+on this assignment."  Consequently your program is requested to
+contain this pledge in a comment near the top.
+
+<p>
+Please <b>carefully read</b> the academic honesty section of the
+course syllabus.  <b>Any evidence</b> of impermissible cooperation on
+projects, use of disallowed materials or resources, or unauthorized
+use of computer accounts, <b>will be submitted</b> to the Student
+Honor Council, which could result in an XF for the course, or
+suspension or expulsion from the University.  Be sure you understand
+what you are and what you are not permitted to do in regards to
+academic integrity when it comes to project assignments.  These
+policies apply to all students, and the Student Honor Council does not
+consider lack of knowledge of the policies to be a defense for
+violating them.  Full information is found in the course
+syllabus---please review it at this time.
+
+<!--#include virtual="../footer.html" -->

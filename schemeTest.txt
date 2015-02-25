@@ -1,0 +1,19 @@
+(define double (lambda (x) (* 2 x)))
+(define powof2 (lambda (x) (=  0 (mod (/ x 2) 2) )))
+(define sum (lambda (l)  (if (pair? l) 
+							(apply + l))
+)
+)
+
+
+(define addToList
+	(lambda (f l)
+		(if (pair? l)
+			(cons (+ f (car l)) (applyToList f (cdr l)))
+			'()
+     )		
+  )
+)
+
+
+
